@@ -1,0 +1,133 @@
+body{
+	background-color: #f4f4f4;
+	color:#555;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 1.6em;
+	margin: 0;
+}
+
+.container{
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.button-box{
+	border: 1px #ccc solid;
+	padding: 8px;
+	border-radius: 8px;
+}
+
+.header-nossie img {
+	position: relative;
+	top: 0px;
+	left: 10px;
+	float: left;
+	width: 50px;
+	height: 57px;
+	padding: 10px;	
+}
+
+.header-nossie h1 {
+	margin:0;
+	padding: 0;
+	position: relative;
+	top: 25px;
+	left: 10px;
+	font-size: 40px;
+}
+
+#navigation{
+	float: right;
+}
+
+#main-header{
+	background-color: DarkGoldenRod;
+	color: #fff;
+}
+
+#navbar{
+	background-color: #333;
+	color: #fff;
+}
+
+#navbar li{
+	display: inline;
+}
+
+#navbar{
+	padding: 0;	
+}
+
+#navbar a{
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+	padding-right: 15px;
+}
+
+/* Hover State of Links */
+#navbar a:hover{
+	color: #d3d3d3;
+}
+
+/* Active State when Clicked */
+#navbar a:active{
+	color: green;
+}
+
+#navbar #register{
+	padding: 0px;
+}
+
+#showcase{
+	background-image: url('../images/rhino.jpg');
+	background-position: center right;
+	min-height: 300px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+#showcase h1{
+	color: #fff;
+	font-size: 50px;
+	line-height: 1.6em;
+	padding-top: 30px;
+}
+
+#main{
+	float:left;
+	width:70%;
+	padding: 0 30px;
+	box-sizing: border-box;
+}
+
+#sidebar{
+	float:right;
+	width:30%;
+	background: #333;
+	color:#fff;
+	padding: 10px 10px;
+	box-sizing: border-box;
+}
+
+#main-footer{
+	background: #333;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+	margin-top: 40px;
+}
+
+@media(max-width:600px){
+	#main{
+		width: 100%;
+		float: none;
+	}
+	
+	#sidebar{
+		width: 100%;
+		float: none;
+	}
+}
