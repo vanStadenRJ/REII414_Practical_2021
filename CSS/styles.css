@@ -13,10 +13,20 @@ body{
 	overflow: hidden;
 }
 
+.container-login{
+	width:30%;
+	margin:auto;
+}
+
 .button-box{
 	border: 1px #ccc solid;
 	padding: 8px;
 	border-radius: 8px;
+}
+
+.header-nossie a{
+	color: #fff;
+	text-decoration: none;
 }
 
 .header-nossie img {
@@ -36,6 +46,69 @@ body{
 	top: 25px;
 	left: 10px;
 	font-size: 40px;
+}
+
+.user-registration{
+	border: 3px dotted #ccc;
+	border-radius: 15px;
+	padding: 20px;
+	padding-right: 32px;
+	margin-top: 150px;
+	font-size: 18px;
+}
+
+.user-registration h2{
+	font-size: 40px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.user-registration .form-group{
+	padding-bottom: 15px;
+	font-size: 18px;
+}
+
+.user-registration label{
+	display:block;
+	font-size: 18px;
+}
+
+.user-registration input{
+	padding: 5px;
+	width: 100%;
+	font-size: 18px;
+	box-sizing: content-box;
+}
+
+.user-registration .button{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	box-sizing: content-box;
+}
+
+.user-registration .alert-warning{
+	border: 1px dotted #ccc;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 15px;
+	background-color: DarkGoldenRod;
+	color: #fff;
+	font-weight: bold;	
+}
+
+.user-registration .alert-warning li{
+	padding-left: 20px;
+}
+
+.user-registration .alert-warning p{
+	text-align: center;
+}
+
+.user-registration .form-group #Verify{
+	text-align: justify;
+	text-justify: inter-word;
 }
 
 #navigation{
@@ -117,7 +190,7 @@ body{
 	color: #fff;
 	text-align: center;
 	padding: 20px;
-	margin-top: 40px;
+	margin-top: 125px;
 }
 
 @media(max-width:600px){
