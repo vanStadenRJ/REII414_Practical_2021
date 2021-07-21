@@ -25,40 +25,41 @@
 				<li>Don't have an account?</li>
 				<li class="button-box"><a id="register" href="signup.php">Register</a></li>
 			</ul>	
-			<ul id="about">
-				<li><a href="#">About</a></li>
-				<li><a href="#">Save a Nossie</a></li>
-			</ul>	
+			
 			
 		</div>		
 	</nav>
+</br></br>
 
 
 
 	<!-- BASIC USER INPUT -->	
-	<div class="container-login">
-		<!-- BASIC USER INPUT -->			
-		<form class="user-registration"  action="login.php" method="POST">
-			<h2>Sign In</h2>
-			
-			<?php if(count($errors) > 0): ?>
-				<div class="alert-warning">
-					<?php foreach($errors as $error): ?>
-						<li><?php echo $error ?></li>
-					<?php endforeach; ?>
-				</div>				
-			<?php endif; ?>	
-			
-			<div class="form-group">
-				<label>Username or Email: </label>
-				<input type="text" value="<?php echo $username; ?>" name="txtUsername">
-			</div>	
-			<div class="form-group">
-				<label>Password: </label>
-				<input type="password" name="txtPassword">
-			</div>
-			<input class="button" type="submit" value="Sign In" name="btnLogin">
-		</form>
+	<div class = "container2">
+		<div class="container-login">
+		
+			<!-- BASIC USER INPUT -->			
+			<form class="user-registration"  action="login.php" method="POST">
+				<h2>Sign In</h2>
+				
+				<?php if(count($errors) > 0): ?>
+					<div class="alert-warning">
+						<?php foreach($errors as $error): ?>
+							<li><?php echo $error ?></li>
+						<?php endforeach; ?>
+					</div>				
+				<?php endif; ?>	
+				
+				<div class="form-group">
+					<label>Username or Email: </label>
+					<input type="text" value="<?php echo $username; ?>" name="txtUsername">
+				</div>	
+				<div class="form-group">
+					<label>Password: </label>
+					<input type="password" name="txtPassword">
+				</div>
+				<input class="button_topic" type="submit" value="Sign In" name="btnLogin">
+			</form>
+		</div>
 	</div>
 	
 	<!-- NO FAULTY RESUBMISSION ERRORS -->
@@ -67,5 +68,8 @@
 			window.history.replaceState( null, null, window.location.href );
 		}
 	</script>
+	</br> 
+	</br>
+	</br>
 </body>
 </html>

@@ -24,45 +24,43 @@
 			<ul id="navigation">
 				<li>Already a Member?</li>
 				<li class="button-box"><a id="register" href="login.php">Sign In</a></li>
-			</ul>	
-			<ul id="about">
-				<li><a href="#">About</a></li>
-				<li><a href="#">Save a Nossie</a></li>
 			</ul>				
 		</div>		
 	</nav>	
-	
-	<div class="container-login">
-		<!-- BASIC USER INPUT -->			
-		<form class="user-registration"  action="signup.php" method="POST">
-			<h2>Register</h2>
-			
-			<?php if(count($errors) > 0): ?>
-				<div class="alert-warning">
-					<?php foreach($errors as $error): ?>
-						<li><?php echo $error ?></li>
-					<?php endforeach; ?>
-				</div>				
-			<?php endif; ?>	
-			
-			<div class="form-group">
-				<label>Username: </label>
-				<input type="text" value="<?php echo $username; ?>" name="txtUsername">
-			</div>	
-			<div class="form-group">
-				<label>Email Addres: </label>
-				<input type="text" value="<?php echo $email; ?>" name="txtEmail">
-			</div>
-			<div class="form-group">
-				<label>Password: </label>
-				<input type="password" name="txtPassword">
-			</div>
-			<div class="form-group">
-				<label>Confirm Password: </label>
-				<input type="password" name="txtConfirm">
-			</div>
-			<input class="button" type="submit" value="Register" name="btnSubmit">
-		</form>
+	<div class = "container2">
+		<div class="container-login">
+			<!-- BASIC USER INPUT -->			
+			<form class="user-registration"  action="signup.php" method="POST">
+				<h2>Register</h2>
+				
+				<?php if(count($errors) > 0): ?>
+					<div class="alert-warning">
+						<?php foreach($errors as $error): ?>
+							<li><?php echo $error ?></li>
+						<?php endforeach; ?>
+					</div>				
+				<?php endif; ?>	
+				
+				<div class="form-group">
+					<label>Username: </label>
+					<input type="text" value="<?php echo $username; ?>" name="txtUsername">
+				</div>	
+				<div class="form-group">
+					<label>Email Addres: </label>
+					<input type="text" value="<?php echo $email; ?>" name="txtEmail">
+				</div>
+				<div class="form-group">
+					<label>Password: </label>
+					<input type="password" name="txtPassword">
+				</div>
+				<div class="form-group">
+					<label>Confirm Password: </label>
+					<input type="password" name="txtConfirm">
+				</div>
+				<center>
+				<input class="button_topic"  type="submit" value="Register" name="btnSubmit"></center>
+			</form>
+		</div>
 	</div>
 	
 	<!-- NO FAULTY RESUBMISSION ERRORS -->

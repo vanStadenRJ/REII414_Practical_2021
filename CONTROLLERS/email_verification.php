@@ -27,7 +27,7 @@
 				<p>
 					Thank you for signing up to @NOSSIE, where each post made, helps us raise money to save the global rhino population!  Please click the link to verify your email!
 				</p>
-				<a href="http://127.0.0.1/REII414_Practical_2021/USER_VERIFICATION/index.php?token=' .$token. '">Verify your email address!</a>
+				<a href="http://127.0.0.1/REII414_Practical_2021/FORUM/index_forum.php?token=' .$token. '">Verify your email address!</a>
 			</div>
 		</body>
 	</html>';

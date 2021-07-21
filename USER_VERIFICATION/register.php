@@ -95,9 +95,9 @@
 			$vkey = md5(time().$strUsername);
 			
 			// Insert Query to insert values into database
-			//$q = "INSERT INTO users_tbl (USERNAME, PASSWORD, EMAIL, REG_DATE) VALUES ('".$strUsername."', '".$hashPW."', '".$strEmail."', '".$strDate."')";
+			//$q = "INSERT INTO users (USERNAME, PASSWORD, EMAIL, REG_DATE) VALUES ('".$strUsername."', '".$hashPW."', '".$strEmail."', '".$strDate."')";
 			//$res = mysqli_query($db, $q);
-			$res = $mysqli->query("INSERT INTO users_tbl (USERNAME, PASSWORD, EMAIL, VKEY, REG_DATE) VALUES ('".$strUsername."', '".$strPassword."', '".$strEmail."', '".$vkey."', '".$strDate."')");
+			$res = $mysqli->query("INSERT INTO users (USERNAME, PASSWORD, EMAIL, VKEY, REG_DATE) VALUES ('".$strUsername."', '".$strPassword."', '".$strEmail."', '".$vkey."', '".$strDate."')");
 			if($res){
 				echo "NEW USER CREATED";
 				$strPassword = '';
@@ -154,4 +154,8 @@
 		}
 	</script>
 </body>
+
+<footer id="main-footer">
+		<p>Copyright &copy; 2017 Nossie Forum</p>
+</footer>
 </html>

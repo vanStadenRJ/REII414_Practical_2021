@@ -14,6 +14,12 @@
 	$errors = array();
 	$username = "";
 	$email = "";
+	$topic_name = "";
+	$topic_content = "";
+	
+	$target_dir = "yeet";
+	
+	
 	
 	// HAS USER CLICKED ON SIGN UP BUTTON
 	if (isset($_POST['btnSubmit'])){
@@ -55,7 +61,7 @@
 			$errors['password'] = "Passwords Do Not Match";
 		}
 
-		$emailQuery = "SELECT * FROM users_tbl WHERE email=? LIMIT 1";
+		$emailQuery = "SELECT * FROM users WHERE email=? LIMIT 1";
 		$stmt = $mysqli->prepare($emailQuery);
 		$stmt->bind_param('s', $email);
 		if($stmt->execute()) {
@@ -78,7 +84,7 @@
 			$token = bin2hex(random_bytes(50));
 			$verified = 0;
 			
-			$sql = "INSERT INTO users_tbl (username, email, verified, token, password) VALUES ('$username', '$email', '$verified', '$token', '$password')";
+			$sql = "INSERT INTO users (username, email, verified, token, password) VALUES ('$username', '$email', '$verified', '$token', '$password')";
 			$res = mysqli_query($mysqli, $sql);
 
 			//$stmt = $mysqli->prepare($sql);
@@ -98,7 +104,7 @@
 				// FLASH MESSAGE
 				$_SESSION['message'] = "You are now logged in!";
 				$_SESSION['alert-class'] = "alert-success";
-				header('location: ../USER_VERIFICATION/index.php');
+				header('location: ../FORUM/index_forum.php');
 				exit();
 			}
 			else{
@@ -126,7 +132,7 @@
 		
 		if ($bCheck === true){
 			// LOG IN QUERY
-			$sql = "SELECT * FROM users_tbl WHERE email=? OR username=? LIMIT 1";
+			$sql = "SELECT * FROM users WHERE email=? OR username=? LIMIT 1";
 			$stmt = $mysqli->prepare($sql);
 			$stmt->bind_param('ss', $username, $umail);
 			$stmt->execute();
@@ -139,11 +145,16 @@
 				$_SESSION['username'] = $user['username'];
 				$_SESSION['email'] = $user['email'];
 				$_SESSION['verified'] = $user['verified'];
+				
+				$_SESSION['session_id'] = hash('sha256', time().$_SESSION['id']);
+				
+				$sql = "INSERT INTO sessions(session_ID, user_ID, session_time) VALUES ('".$_SESSION['session_id']."', '".$_SESSION['id']."', unix_timestamp())";
+				$res = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 					
 				// FLASH MESSAGE
 				$_SESSION['message'] = "You are now logged in!";
 				$_SESSION['alert-class'] = "alert-success";
-				header('location: ../USER_VERIFICATION/index.php');
+				header('location: ../FORUM/index_forum.php');
 				exit();
 			}
 			else {
@@ -167,14 +178,13 @@
 	function verifyUser($token)
 	{
 		global $mysqli;
-		$sql = "SELECT * FROM users_tbl WHERE token='$token' LIMIT 1";
-		echo $sql;
+		$sql = "SELECT * FROM users WHERE token='$token' LIMIT 1";
 		$res = mysqli_query($mysqli, $sql);
 		
 		// IF USER IN TABLE
 		if (mysqli_num_rows($res) > 0) {
 			$user = mysqli_fetch_assoc($res);
-			$update_query = "UPDATE users_tbl SET verified=1 WHERE token='$token'";
+			$update_query = "UPDATE users SET verified=1 WHERE token='$token'";
 			
 			if (mysqli_query($mysqli, $update_query)) {
 				// LOGIN SUCCESS
@@ -182,17 +192,20 @@
 				$_SESSION['username'] = $user['username'];
 				$_SESSION['email'] = $user['email'];
 				$_SESSION['verified'] = 1;
+				$_SESSION['session_id'] = hash('sha256', time().$_SESSION['id']);
+				
+				$sql = "INSERT INTO sessions(session_ID, user_ID, session_time) VALUES ('".$_SESSION['session_id']."', '".$_SESSION['id']."', unix_timestamp())";
+				$res = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 					
 				// FLASH MESSAGE
 				$_SESSION['message'] = "Your email address was successfully verified!";
 				$_SESSION['alert-class'] = "alert-success";
-				header('location: ../USER_VERIFICATION/index.php');
+				header('location: ../FORUM/index_forum.php');
 				exit();
 			}
 			else {
 				// User Does Not Exist!
 			}
 		}
-	}
-	
+	}	
 ?>
